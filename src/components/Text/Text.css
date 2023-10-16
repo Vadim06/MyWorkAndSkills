@@ -1,0 +1,19 @@
+.typingText {
+  color: rgb(199 63 80);
+  font-weight: 150;
+  font-size: 1.5rem;
+}
+
+.cursor {
+  animation: fadeInOut 1s infinite;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

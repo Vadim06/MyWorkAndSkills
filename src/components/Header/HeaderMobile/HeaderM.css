@@ -1,0 +1,96 @@
+.headerMobile {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+  width: 100%;
+  background-color: #202225;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 6px 28px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 6px 28px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 6px 28px -12px rgba(0, 0, 0, 0.75);
+  color: #e6e9f06b;
+}
+
+.hamLine,
+.hamLine::after,
+.hamLine::before {
+  display: flex;
+  position: relative;
+  width: 3.5rem;
+  height: 0.2rem;
+  background-color: rgb(199 63 80);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.hamLine::after,
+.hamLine::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+}
+
+.hamLine::after {
+  top: 1rem;
+}
+
+.hamNav {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  transform: translateY(-15%);
+}
+
+.hamBox:checked + .hamLine {
+  margin-top: 0.6rem;
+  top: -0.5rem;
+  transform: rotate(-45deg);
+}
+
+.hamBox:checked + .hamLine::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.hamBox:checked + .hamLine::before {
+  opacity: 0;
+}
+
+.hamNav input {
+  width: 0;
+  height: 0;
+}
+
+.navbarItemsContainerMobile {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.navbarItemsContainerMobile li {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+}
+
+.rollOut {
+  height: 13.5rem;
+}
+
+.topMenuContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topMenuContainer p {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
