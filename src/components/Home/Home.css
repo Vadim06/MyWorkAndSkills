@@ -1,7 +1,7 @@
 main {
   display: flex;
   min-height: 42.5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   justify-content: center;
   position: relative;
 }
@@ -170,7 +170,7 @@ main::after {
   }
 
   .mainText {
-    margin: 8rem 2rem;
+    margin: 4rem 2rem;
     margin-bottom: 0;
   }
 
@@ -201,7 +201,7 @@ main::after {
   }
 
   .introduce {
-    margin-top: 8rem;
+    margin-top: 5rem;
   }
 
   .laptopGuy {
@@ -215,4 +215,10 @@ main::after {
   .introduceContent {
     flex-direction: column;
   }
+
+  .laptopGuy {
+    width: 10rem;
+  }
 }
+
+

@@ -40,3 +40,9 @@
     margin-top: 4rem;
   }
 }
+
+@media (max-width: 370px) {
+  .bubble {
+    margin: 0 1rem;
+  }
+}

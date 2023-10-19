@@ -38,7 +38,9 @@ export const About = () => {
                         <li>Cycling</li>
                     </ul>
                 </div>
-                <img src={me} alt="me" className='me' />
+                <div className='meContainer'>
+                    <img src={me} alt="me" className='me' />
+                </div>
             </div>
             <div className='skillset'>
                 <h1>Professional <span>skillset</span></h1>

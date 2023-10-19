@@ -58,13 +58,19 @@
 }
 
 .me {
-  margin-top: 4rem;
-  margin-left: 6rem;
-  width: 22%;
-  height: 22%;
+  width: 45%;
+  height: 45%;
   border-radius: 20%;
   user-select: none;
   animation: ImgLoadingMe 1.5s;
+}
+
+.meContainer {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  height: 55%;
 }
 
 h6 {
@@ -98,6 +104,8 @@ h6 {
   letter-spacing: 2px;
   font-size: 1.5rem;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
   width: 9rem;
   transition: 0.5s;
 }
@@ -145,7 +153,7 @@ h6 {
 
   100% {
     opacity: 1;
-    margin-top: 4rem;
+    margin-top: 0;
   }
 }
 
@@ -170,9 +178,13 @@ h6 {
   }
 
   .me {
-    width: 55%;
-    height: 22%;
     animation: none;
+    width: 135%;
+  }
+
+  .meContainer {
+    margin: 0 auto;
+    margin-top: 3rem;
   }
 
   .skillset {
@@ -188,6 +200,7 @@ h6 {
 
   .skillset h1 {
     font-weight: 100;
+    font-size: 2rem;
     position: relative;
     margin-left: 0;
   }
@@ -200,5 +213,13 @@ h6 {
 
   .aboutText p {
     margin: 0;
+  }
+}
+
+
+@media (max-width: 390px) {
+  .skillsetBtn {
+    width: 7.5rem;
+    margin: 2rem 0.5rem;
   }
 }
