@@ -14,8 +14,9 @@ main {
 
 .h2 {
   color: #e6e9f0;
-  font-weight: 150;
+  font-weight: 600;
   font-size: 2rem;
+  margin: 0;
 }
 
 .briefInfo {
@@ -35,9 +36,61 @@ main {
   margin-top: 8rem;
 }
 
+.mainText p {
+  font-weight: 100;
+  color: #e6e9f0;
+  font-size: 1.25rem;
+  margin-left: 2rem;
+  width: 24rem;
+  position: relative;
+}
+
+.mainText p::after {
+  content: "";
+  position: absolute;
+  width: 0.2rem;
+  height: 100%;
+  top: 0;
+  left: -0.5rem;
+  border-radius: 6px;
+}
+
+.online {
+  color: #43b581;
+}
+
+.dnd {
+  color: #f04747;
+}
+
+.idle {
+  color: #faa61a;
+}
+
+.offline {
+  color: #959595;
+}
+
+.onlineBar::after {
+  background-color: #43b581;
+}
+
+.idleBar::after {
+  background-color: #faa61a;
+}
+
+.dndBar::after {
+  background-color: #f04747;
+}
+
+.offlineBar::after {
+  background-color: #959595;
+}
+
 main::after {
   content: "";
   position: absolute;
+  top: 4rem;
   width: 43rem;
   height: 18rem;
   transform: translate(-40rem, 24rem);
@@ -70,6 +123,7 @@ main::after {
   position: relative;
   font-size: 3rem;
   margin-bottom: 2rem;
+  font-weight: 100;
 }
 
 .introduce h2::after {
@@ -164,9 +218,16 @@ main::after {
   border-radius: 5px;
 }
 
+@media (max-width: 1280px) {
+  .coder {
+    width: 43%;
+  }
+}
+
 @media (max-width: 1060px) {
   main {
-    flex-direction: column;
+    flex-direction: row;
+    min-height: fit-content;
   }
 
   .mainText {
@@ -174,9 +235,13 @@ main::after {
     margin-bottom: 0;
   }
 
+  .mainText p {
+    max-width: 12rem;
+  }
+
   .coder {
     margin-left: 0;
-    margin-top: 5rem;
+    margin-top: 1rem;
     animation: none;
   }
 
@@ -204,6 +269,10 @@ main::after {
     margin-top: 5rem;
   }
 
+  .introduce::after {
+    display: none;
+  }
+
   .laptopGuy {
     margin: 0 auto;
   }
@@ -221,4 +290,12 @@ main::after {
   }
 }
 
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
 
+  .coder {
+    width: 100%;
+  }
+}
