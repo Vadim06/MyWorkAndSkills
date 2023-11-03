@@ -141,7 +141,7 @@ main::after {
   content: "";
   position: absolute;
   width: 43rem;
-  top: 3rem;
+  top: 2rem;
   height: 20rem;
   transform: scaleX(-1) translateX(-39rem);
   border-radius: 6.563rem;
