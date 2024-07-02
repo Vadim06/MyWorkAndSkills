@@ -200,28 +200,31 @@ button {
   display: flex;
   height: 1.8rem;
   width: 1.8rem;
+  outline: none;
   border-left: 2px rgb(199 63 80) solid;
   border-bottom: 2px rgb(199 63 80) solid;
   transform: rotate(45deg) translateX(50%);
   transition: .3s;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .next {
   transform: rotate(230deg) translateX(-50%);
 }
 
-.next {
-  margin-left: 10rem;
+.hobbyBtns {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 24rem;
 }
 
 .prev:hover,
 .next:hover {
   box-shadow: 0 0 50px rgb(199 63 80);
-  background: rgba(199, 63, 79, 0.3);
-}
-
-.dumbbell {
-  transform: translateX(-5%);
+  background: rgba(199, 63, 79, 0.2);
 }
 
 @keyframes ImgLoadingMe {
@@ -244,6 +247,7 @@ button {
   .hobbyText {
     opacity: 1;
     left: 25%;
+    transform: translateY(-50%);
   }
 
   .slideInner___2mfX9::after {
@@ -265,11 +269,15 @@ button {
   }
 }
 
+@media (max-width: 800px) {
+  .slideInner___2mfX9::after {
+    bottom: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .hobbyBtns {
-    transform: translateX(-4%);
-    display: flex;
-    justify-content: space-around;
+    margin-right: 2rem;
   }
 
   .slideInner___2mfX9::after {
@@ -277,17 +285,22 @@ button {
   }
 
   .hobbies h6 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .next,
   .prev {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .hobbyText {
     opacity: 1;
     left: 35%;
+  }
+
+  .slideInner___2mfX9 {
+    pointer-events: none;
   }
 
   .hobbyImg {

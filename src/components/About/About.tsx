@@ -8,6 +8,7 @@ import { TbBrandJavascript, TbBrandTypescript } from "react-icons/tb";
 import { BiLogoReact, BiGitBranch } from "react-icons/bi";
 import { RiBootstrapLine } from "react-icons/ri";
 import { CiDumbbell } from "react-icons/ci";
+import { FaDumbbell } from "react-icons/fa6";
 import { MdVideoSettings } from "react-icons/md";
 import { GiGuitar } from "react-icons/gi";
 import { FaCameraRetro } from "react-icons/fa";
@@ -23,7 +24,7 @@ const icons = [
 ]
 
 const hobbyIcons = [
-    <CiDumbbell className='hobbyImg dumbbell' size={'10rem'} />,
+    <FaDumbbell className='hobbyImg dumbbell' size={'7rem'} />,
     <FaCameraRetro className='hobbyImg' size={'6.8rem'} />,
     <MdVideoSettings className='hobbyImg' size={'6.6rem'} />,
     <GiGuitar className='hobbyImg' size={'7rem'} />
