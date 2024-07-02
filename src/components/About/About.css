@@ -27,7 +27,6 @@
 
 .aboutText {
   margin-top: 8rem;
-  margin-bottom: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -51,7 +50,6 @@
 }
 
 .skillset {
-  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,6 +143,87 @@ h6 {
   transition: 0.5s;
 }
 
+.hobbyImg {
+  position: relative;
+  border-bottom: solid rgb(199 63 80) 0rem;
+  transition: ease-in-out .3s;
+}
+
+.slideInner___2mfX9 {
+  cursor: pointer;
+}
+
+.slideInner___2mfX9:hover .hobbyText {
+  opacity: 1;
+  left: 25%;
+}
+
+.slideInner___2mfX9:hover::after {
+  width: 50%;
+}
+
+.slideInner___2mfX9::after {
+  content: "";
+  position: absolute;
+  bottom: 3rem;
+  right: 0;
+  left: 0rem;
+  width: 0%;
+  height: 10px;
+  border-bottom: 2px solid rgb(199 63 80);
+  transition: 0.5s;
+}
+
+.hobbyText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-100%);
+  white-space: nowrap;
+  padding: 10px;
+  opacity: 0;
+  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.slideInner___2mfX9 {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.prev,
+.next {
+  display: flex;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-left: 2px rgb(199 63 80) solid;
+  border-bottom: 2px rgb(199 63 80) solid;
+  transform: rotate(45deg) translateX(50%);
+  transition: .3s;
+}
+
+.next {
+  transform: rotate(230deg) translateX(-50%);
+}
+
+.next {
+  margin-left: 10rem;
+}
+
+.prev:hover,
+.next:hover {
+  box-shadow: 0 0 50px rgb(199 63 80);
+  background: rgba(199, 63, 79, 0.3);
+}
+
+.dumbbell {
+  transform: translateX(-5%);
+}
+
 @keyframes ImgLoadingMe {
   0% {
     opacity: 0;
@@ -158,6 +237,20 @@ h6 {
 }
 
 @media (max-width: 970px) {
+  .slideInner___2mfX9 {
+    margin-left: 1rem;
+  }
+
+  .hobbyText {
+    opacity: 1;
+    left: 25%;
+  }
+
+  .slideInner___2mfX9::after {
+    bottom: 2rem;
+    width: 60%;
+  }
+
   .skillset h1::after {
     width: 100%;
   }
@@ -166,13 +259,41 @@ h6 {
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
   }
-  
+
   .skillsetBtn {
     margin: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 600px) {
+  .hobbyBtns {
+    transform: translateX(-4%);
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .slideInner___2mfX9::after {
+    width: 0;
+  }
+
+  .hobbies h6 {
+    margin-bottom: 1rem;
+  }
+
+  .next,
+  .prev {
+    margin-top: 1rem;
+  }
+
+  .hobbyText {
+    opacity: 1;
+    left: 35%;
+  }
+
+  .hobbyImg {
+    height: 6rem;
+  }
+
   .skillsetBtns {
     grid-template-columns: repeat(2, 1fr);
   }
