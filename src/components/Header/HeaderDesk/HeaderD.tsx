@@ -31,6 +31,7 @@ export const HeaderD = () => {
                     <ul className='navbarItemsContainer'>
                         <li className='navbarItem navbarItemDesk'><Link to="/"><AiOutlineHome /><p>Home</p></Link></li>
                         <li className='navbarItem navbarItemDesk'><Link to="/about"><AiOutlineUser /><p>About</p></Link></li>
+                        <li className='navbarItem navbarItemDesk'><Link to="/about"><AiOutlineUser /><p>About</p></Link></li>
                     </ul>
                 </nav>
 
