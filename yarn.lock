@@ -7682,10 +7682,10 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz"
   integrity sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==
 
-pure-react-carousel@^1.30.1:
-  version "1.30.1"
-  resolved "https://registry.npmjs.org/pure-react-carousel/-/pure-react-carousel-1.30.1.tgz"
-  integrity sha512-B1qi62hZk0OFqRR4cTjtgIeOn/Ls5wo+HsLtrXT4jVf5et8ldBHSt+6LsYRJN86Or8dm+XbnJNEHy6WDJ0/DQw==
+pure-react-carousel@^1.32.0:
+  version "1.32.0"
+  resolved "https://registry.npmjs.org/pure-react-carousel/-/pure-react-carousel-1.32.0.tgz"
+  integrity sha512-RW0zKjjId1Xmspcqdu3v0pmlce3BVDACJ0fzt1+ZPJ4GxqJbIqt2kPAh1e5M19S5BDewihnq6kz4kIaGXleO3w==
   dependencies:
     "@babel/runtime" "^7.5.5"
     deep-freeze "0.0.1"

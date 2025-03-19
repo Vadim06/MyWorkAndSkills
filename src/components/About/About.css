@@ -56,8 +56,8 @@
 }
 
 .me {
-  width: 45%;
-  height: 45%;
+  width: 58%;
+  height: 58%;
   border-radius: 20%;
   user-select: none;
   animation: ImgLoadingMe 1.5s;
@@ -67,8 +67,8 @@
   margin-top: 5rem;
   display: flex;
   justify-content: center;
-  width: 55%;
-  height: 55%;
+  width: 34%;
+  height: 34%;
 }
 
 h6 {
@@ -313,7 +313,7 @@ button {
 
   .me {
     animation: none;
-    width: 135%;
+    width: 210%;
   }
 
   .meContainer {
@@ -337,6 +337,7 @@ button {
     font-size: 2rem;
     position: relative;
     margin-left: 0;
+    margin-bottom: -2rem;
   }
 
   .aboutSection h2 {
