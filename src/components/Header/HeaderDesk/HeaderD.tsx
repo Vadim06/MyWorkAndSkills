@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import './HeaderD.css';
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { SiStarship } from "react-icons/si";
 
 export const HeaderD = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -31,7 +32,7 @@ export const HeaderD = () => {
                     <ul className='navbarItemsContainer'>
                         <li className='navbarItem navbarItemDesk'><Link to="/"><AiOutlineHome /><p>Home</p></Link></li>
                         <li className='navbarItem navbarItemDesk'><Link to="/about"><AiOutlineUser /><p>About</p></Link></li>
-                        <li className='navbarItem navbarItemDesk'><Link to="/about"><AiOutlineUser /><p>About</p></Link></li>
+                        <li className='navbarItem navbarItemDesk'><Link to="/swapi"><SiStarship /><p>SWAPI</p></Link></li>
                     </ul>
                 </nav>
 
