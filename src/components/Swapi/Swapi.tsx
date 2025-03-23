@@ -16,8 +16,11 @@ export const Swapi = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [pages, setPages] = useState<number>(0);
     const [category, setCategory] = useState<string>("people");
+    const [search, setSearch] = useState<string>("");
+    const [btnWidth, setBtnWidth] = useState<string>("7rem");
 
     const toggleShowCharacter = () => {
+        setSearch("");
         showCharactersVar = !showCharactersVar;
         if (showCharactersVar) {
             setShowCharacters(true)
@@ -46,6 +49,7 @@ export const Swapi = () => {
     }
 
     const paginate = (count: number) => {
+        console.log(count);
         if (count > 10) {
             setPages((Math.ceil(count / 10)));
         } else {
@@ -54,13 +58,13 @@ export const Swapi = () => {
     }
 
     const nextPage = () => {
-        currentPage++
         setIsLoading(true);
-        axios.get(`https://swapi.dev/api/${category}/?page=${currentPage}`)
+        axios.get(`https://swapi.dev/api/${category}/?page=${currentPage + 1}`)
             .then(response => {
                 setCharacters(response.data.results);
                 console.log(response.data.results);
                 setIsLoading(false);
+                currentPage++
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
@@ -69,13 +73,37 @@ export const Swapi = () => {
     }
 
     const prevPage = () => {
-        currentPage--
         setIsLoading(true);
-        axios.get(`https://swapi.dev/api/${category}/?page=${currentPage}`)
+        axios.get(`https://swapi.dev/api/${category}/?page=${currentPage - 1}`)
             .then(response => {
                 setCharacters(response.data.results);
                 console.log(response.data.results);
                 setIsLoading(false);
+                currentPage--
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                setIsLoading(false);
+            });
+    }
+
+    const searchChangeHandler = (value: string) => {
+        setSearch(value);
+        setIsLoading(true);
+        axios.get(`https://swapi.dev/api/people/?search=${value}`)
+            .then(response => {
+                setCharacters(response.data.results);
+                console.log(response.data.results);
+                setIsLoading(false);
+                if (value.length > 0) {
+                    setBtnWidth("0rem");
+                    setPages(0);
+                } else {
+                    setBtnWidth("7rem");
+                    showCharactersVar = false;
+                    currentPage = 1;
+                    toggleShowCharacter();
+                }
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
@@ -91,7 +119,8 @@ export const Swapi = () => {
                     <option value="people">people</option>
                     <option value="planets">planets</option>
                 </select>
-                <button onClick={toggleShowCharacter} className='showCharactersBtn'>{isLoading ? "show all characters" : "hide all characters"}</button>
+                <input type="text" placeholder='search...' value={search} onChange={(event: React.ChangeEvent<HTMLInputElement>) => searchChangeHandler(event.target.value)} />
+                <button onClick={toggleShowCharacter} style={{width: btnWidth}} className='showCatergoryBtn'>{isLoading ? `show all ${category}` : `hide all ${category}`}</button>
                 {isLoading && showCharacters ? (
                     <p>Loading...</p>
                 ) : (
@@ -105,7 +134,7 @@ export const Swapi = () => {
                 )}
                 {pages > 0 && (
                     <div>
-                        <p>There are {pages} pages</p>
+                        <p>page {currentPage} of {pages}</p>
                         {currentPage > 1 && <button onClick={prevPage}>previous</button>}
                         {currentPage < pages && <button onClick={nextPage}>next</button>}
                     </div>
