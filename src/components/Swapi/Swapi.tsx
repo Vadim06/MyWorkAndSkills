@@ -7,9 +7,23 @@ interface Category {
     name: string;
     height: string;
     mass: string;
+    diameter: string;
+    population: string;
+    director: string;
+    release_date: string;
+    title: string;
+    classification: string;
+    skin_colors: string;
+    manufacturer: string;
+    max_atmosphering_speed: string;
+    consumables: string;
+    starship_class: string;
+    crew: string;
+    vehicle_class: string;
 }
 let showCategoryVar = false;
 let currentPage = 1;
+let debounceTimer: NodeJS.Timeout;
 
 export const Swapi = () => {
     const [allCategories, setAllCategories] = useState<string[]>([]);
@@ -20,6 +34,7 @@ export const Swapi = () => {
     const [category, setCategory] = useState<string>("people");
     const [search, setSearch] = useState<string>("");
     const [btnWidth, setBtnWidth] = useState<string>("8rem");
+    const [disabledBtn, setDisabledBtn] = useState<boolean>(false);
 
     useEffect(() => {
         axios.get("https://swapi.dev/api/")
@@ -34,7 +49,6 @@ export const Swapi = () => {
     const toggleShowCategory = () => {
         setSearch("");
         showCategoryVar = !showCategoryVar;
-        console.log(showCategoryVar);
         if (showCategoryVar) {
             setShowCategory(true)
             axios.get(`https://swapi.dev/api/${category}`)
@@ -99,38 +113,54 @@ export const Swapi = () => {
     const searchChangeHandler = (value: string) => {
         setSearch(value);
         setIsLoading(true);
-        setBtnWidth("0rem");
-        axios.get(`https://swapi.dev/api/${category}/?search=${value}`)
-            .then(response => {
-                setCategories(response.data.results);
-                console.log(response.data.results);
-                setIsLoading(false);
-                if (value.length > 0) {
-                    setPages(0);
-                } else {
-                    setBtnWidth("8rem");
-                    showCategoryVar = false;
-                    currentPage = 1;
-                    toggleShowCategory();
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-                setIsLoading(false);
-            });
+        setDisabledBtn(true);
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            axios.get(`https://swapi.dev/api/${category}/?search=${value}`)
+                .then(response => {
+                    setCategories(response.data.results);
+                    console.log(response.data.results);
+                    setIsLoading(false);
+                    if (value.length > 0) {
+                        setPages(0);
+                    } else {
+                        setDisabledBtn(false);
+                        showCategoryVar = false;
+                        currentPage = 1;
+                        toggleShowCategory();
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    setIsLoading(false);
+                });
+        }, 300)
     }
 
     return (
         <section className="SWSection">
             <div className='SWContainer'>
-                <h3>What would you like to see?</h3>
-                <select className='categories' name="categories" value={category} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => { setCategory(event.target.value); deleteList(); showCategoryVar = false; }} id="SWSelect">
-                    {allCategories.map((category, index) => (
-                        <option value={category} key={index}>{category}</option>
-                    ))}
-                </select>
-                <input type="text" placeholder={`search ${category}...`} value={search} onChange={(event: React.ChangeEvent<HTMLInputElement>) => searchChangeHandler(event.target.value)} />
-                <button onClick={toggleShowCategory} style={{ width: btnWidth }} className='showCategoryBtn'>{!showCategory ? `show all ${category}` : `hide all ${category}`}</button>
+                <div className='SWHeaders'>
+                    <h1>Welcome to my SWAPI playground</h1>
+                    <h6 className='stillInBeta'>still in beta🤫</h6>
+                </div>
+                <div className='SWAPIControls'>
+                    <div className='selectContainer'>
+                        <select className='categories' name="categories" value={category} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => { setCategory(event.target.value); deleteList(); showCategoryVar = false; }} id="SWSelect">
+                            {allCategories.map((category, index) => (
+                                <option value={category} key={index}>{category}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <input type="text" placeholder={`search ${category}...`} value={search} onChange={(event: React.ChangeEvent<HTMLInputElement>) => searchChangeHandler(event.target.value)} />
+                    <button onClick={toggleShowCategory} disabled={disabledBtn} style={disabledBtn ? {color: "grey"} : {color: "white"}} className='showCategoryBtn skillsetBtn'><p>{disabledBtn
+                        ? "search is active"
+                        : (!showCategory
+                            ? `show all ${category}`
+                            : `hide all ${category}`
+                        )
+                    }</p></button>
+                </div>
                 {isLoading && showCategory ? (
                     <p>Loading...</p>
                 ) : (
@@ -145,8 +175,10 @@ export const Swapi = () => {
                 {pages > 0 && (
                     <div>
                         <p>page {currentPage} of {pages}</p>
-                        {currentPage > 1 && <button onClick={prevPage}>previous</button>}
-                        {currentPage < pages && <button onClick={nextPage}>next</button>}
+                        <div className='arrowsPages'>
+                            {currentPage > 1 && <button onClick={prevPage} className='prev'></button>}
+                            {currentPage < pages && <button onClick={nextPage} className='next'></button>}
+                        </div>
                     </div>
                 )}
             </div>

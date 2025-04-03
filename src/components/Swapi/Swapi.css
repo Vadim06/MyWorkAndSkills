@@ -8,10 +8,109 @@
   padding: 0;
   margin: 0 1rem;
   white-space: nowrap;
+  width: 8rem;
 }
 
 .SWSection {
   display: flex;
+  color: white;
+}
+
+.SWHeaders {
+  width: fit-content;
+  margin-bottom: 2rem;
+}
+
+.stillInBeta {
+  font-size: small;
+  margin-top: 0;
+  text-align: end;
+}
+
+.selectContainer select {
+  background: rgb(62, 74, 87);
+  background: linear-gradient(90deg, rgba(199, 63, 80, 0.7) 35%, rgba(62, 74, 87, 1) 100%);
+  color: rgb(230 233 240);
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  outline: none;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.selectContainer {
+  position: relative;
+  width: fit-content;
 }
 
 
+.selectContainer::before {
+  content: "";
+  position: absolute;
+  top: 0.8rem;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-top: 4px solid rgb(167 63 76);
+  border-left: 4px solid rgb(199 63 80);
+  transition: 0.5s;
+  transform: rotate(225deg);
+}
+
+.categories:hover {
+  -webkit-box-shadow: 0px 0px 29px 0px rgba(167, 63, 76, 0.75);
+  -moz-box-shadow: 0px 0px 29px 0px rgba(167, 63, 76, 0.75);
+  box-shadow: 0px 0px 29px 0px rgba(167, 63, 76, 0.75);
+}
+
+.categories {
+  transition: .3s;
+}
+
+.categories option {
+  background-color: #495664;
+  color: rgb(230 233 240);
+}
+
+.showCategoryBtn p {
+  margin: .3rem;
+}
+
+.SWAPIControls input {
+  background: none;
+  border: none;
+  border-bottom: solid 3px rgb(151 163 176);
+  color: white;
+  font-size: medium;
+  height: 3rem;
+  border-radius: 3px;
+}
+
+.SWAPIControls input:focus-visible {
+  outline: none;
+}
+
+.SWAPIControls {
+  display: flex;
+  flex-direction: row;
+  width: 45rem;
+  justify-content: space-between;
+}
+
+.SWAPIControls .skillsetBtn {
+  font-size: 1rem;
+  white-space: wrap;
+}
+
+.arrowsPages {
+  display: flex;
+  flex-direction: row;
+  width: 10rem;
+  justify-content: space-around;
+}
