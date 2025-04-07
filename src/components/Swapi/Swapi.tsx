@@ -134,7 +134,7 @@ export const Swapi = () => {
                     console.error("Error fetching data:", error);
                     setIsLoading(false);
                 });
-        }, 300)
+        }, 200)
     }
 
     return (
@@ -153,7 +153,7 @@ export const Swapi = () => {
                         </select>
                     </div>
                     <input type="text" placeholder={`search ${category}...`} value={search} onChange={(event: React.ChangeEvent<HTMLInputElement>) => searchChangeHandler(event.target.value)} />
-                    <button onClick={toggleShowCategory} disabled={disabledBtn} style={disabledBtn ? {color: "grey"} : {color: "white"}} className='showCategoryBtn skillsetBtn'><p>{disabledBtn
+                    <button onClick={toggleShowCategory} disabled={disabledBtn} style={disabledBtn ? { color: "grey" } : { color: "white" }} className='showCategoryBtn skillsetBtn'><p>{disabledBtn
                         ? "search is active"
                         : (!showCategory
                             ? `show all ${category}`
@@ -161,17 +161,19 @@ export const Swapi = () => {
                         )
                     }</p></button>
                 </div>
-                {isLoading && showCategory ? (
-                    <p>Loading...</p>
-                ) : (
-                    <ul>
-                        {categories.map((category, index) => (
-                            <li key={index}>
-                                <CategoryChild category={category} />
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                <div className='categoryChildrenContainer'>
+                    {isLoading && showCategory ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <ul>
+                            {categories.map((category, index) => (
+                                <li key={index} className='categoryChild'>
+                                    <CategoryChild category={category} />
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 {pages > 0 && (
                     <div>
                         <p>page {currentPage} of {pages}</p>

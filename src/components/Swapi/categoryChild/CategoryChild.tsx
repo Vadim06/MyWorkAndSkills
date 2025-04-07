@@ -23,11 +23,11 @@ export const CategoryChild: React.FC<{ category: Category }> = ({ category }) =>
     const [text, setText] = useState<string>("");
     useEffect(() => {
         if (category.height && category.mass) {
-            setText(`Height: ${category.height}cm, mass: ${category.mass}kg`);
+            setText(` - Height: ${category.height}cm, mass: ${category.mass}kg`);
         } else if (category.diameter && category.population) {
             let num = Number(category.population);
             if (category.population === "unknown") {
-                setText(`Diameter: ${category.diameter}km, population is unknown`);
+                setText(` - Diameter: ${category.diameter}km, population is unknown`);
             } else {
                 if (num < 1000) {
                     setText(` - Diameter: ${category.diameter}km, population: ${category.population}`);
