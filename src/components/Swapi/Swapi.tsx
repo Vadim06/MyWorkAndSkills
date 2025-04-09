@@ -161,7 +161,7 @@ export const Swapi = () => {
                         )
                     }</p></button>
                 </div>
-                <div className='categoryChildrenContainer'>
+                <div className={`categoryChildrenContainer ${categories.length > 0 ? 'SWAPIMobile' : ''}`}>
                     {isLoading && showCategory ? (
                         <p>Loading...</p>
                     ) : (
