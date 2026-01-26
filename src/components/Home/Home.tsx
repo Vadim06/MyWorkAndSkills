@@ -3,7 +3,7 @@ import './Home.css';
 import { Footer } from '../Footer/Footer';
 import { Text } from '../Text/Text';
 import imgPerson from '../../img/Lovepik_com-400279584-working-person.png';
-const imgCoder = "https://ouch-cdn2.icons8.com/vZD-nOO0-rKGloPBW0WjLQF-i8hfkpa7QWY_3L4YTGA/rs:fit:684:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzAx/L2Y1ZWI5ZGEwLTM3/ZWMtNDUxYy1iODNl/LTVjMzc1NGU5NjQx/NC5zdmc.png"
+import imgCoder from "../../img/coder.png"
 
 
 export const Home = () => {
@@ -53,6 +53,7 @@ export const Home = () => {
   return (
     <div className="App">
       <main>
+        <img src={imgCoder} alt="coder" className='coder' />
         <div className='mainText'>
           <h2 className='hello'>
             Hello there! <span className='wave'>👋🏻</span>
@@ -64,7 +65,6 @@ export const Home = () => {
           <Text text="Software engineer" typingSpeed={100} />
           <p className={`${data?.discord_status}Bar`}>Right now <span className={data?.discord_status}>{data?.discord_status}</span> on Discord{statusMsg} </p>
         </div>
-        <img src={imgCoder} alt="coder" className='coder' />
       </main>
       <section className='introduce'>
         <div className='introduceContainer'>
