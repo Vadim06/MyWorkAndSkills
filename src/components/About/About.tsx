@@ -47,7 +47,7 @@ export const About = () => {
                     <p>
                         Hi, I am <span>Vadym Mykhailets</span>, current location: <span>Czech Republic</span>
                         <br />
-                        I am studying at Hejčín highschool in Olomouc
+                        I am studying at Palackého University in Olomouc
                         <br />
                         I enjoy learning new technologies, problem-solving and working in a team
                     </p>
